@@ -1,8 +1,5 @@
 package pixelbattle.screens;
 
-import pixelbattle.classes.Mage;
-import pixelbattle.classes.Warrior;
-
 public class Battle extends javax.swing.JFrame {
     
     public Battle() {
@@ -50,7 +47,8 @@ public class Battle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemP1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemP1ButtonActionPerformed
-        
+        new WarriorCheck().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_itemP1ButtonActionPerformed
 
     public static void main(String args[]) {

@@ -293,8 +293,8 @@ public class WarriorRegister extends javax.swing.JFrame {
             prepare.setInt(6, this.warrior.getSpeedPoints());
             prepare.executeUpdate();
             JOptionPane.showMessageDialog(this, "Guerreiro salvo com sucesso!");
+            new Battle().setVisible(true); // exibe a tela inicial
             this.dispose(); // libera a memória da janela
-            new SelectionChar().setVisible(true); // exibe a tela inicial
         } catch (Exception exception)
         {
             exception.printStackTrace();

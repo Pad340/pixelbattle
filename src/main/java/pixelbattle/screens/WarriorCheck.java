@@ -65,6 +65,7 @@ public class WarriorCheck extends javax.swing.JFrame {
 
         jLabel2.setText("Nome");
 
+        name.setEditable(false);
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameActionPerformed(evt);
@@ -361,7 +362,7 @@ public class WarriorCheck extends javax.swing.JFrame {
         /*
         ATUALIZANDO GUERREIRO
         */
-        sql = "INSERT "
+        sql = "UPDATE "
                 + "INTO `tb_warrior` "
                 + "(`name`, `health_points`, `attack_points`, `defense_points`, `strength_points`, `speed_points`) "
                 + "VALUES "
