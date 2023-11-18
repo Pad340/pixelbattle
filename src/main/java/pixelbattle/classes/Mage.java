@@ -27,5 +27,4 @@ public class Mage extends Character {
                 + ", attackPoints=" + this.getAttackPoints() + ", defensePoints="
                 + this.getDefensePoints() + ", knowledgePoints=" + knowledgePoints + ", regenerationPoints=" + regenerationPoints + "}";
     }
-     
 }
