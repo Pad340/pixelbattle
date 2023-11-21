@@ -1,14 +1,12 @@
 package pixelbattle.screens;
 
-import java.sql.PreparedStatement;
-import javax.swing.JOptionPane;
-import pixelbattle.connect.Connect;
-
 public class SelectionChar extends javax.swing.JFrame {
     
     public SelectionChar() {
         initComponents();
+        
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,9 +36,9 @@ public class SelectionChar extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(warriorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addGap(27, 27, 27)
+                .addComponent(warriorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(mageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(89, Short.MAX_VALUE))
         );
@@ -95,7 +93,6 @@ public class SelectionChar extends javax.swing.JFrame {
         }
         //</editor-fold>
         
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SelectionChar().setVisible(true);

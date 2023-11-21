@@ -328,21 +328,21 @@ public class WarriorCheck extends javax.swing.JFrame {
 
     private void update() {
 
-        String sql;
+        String query;
 
         if (this.item != null)
         {
             /*
             SALVANDO ITEM
             */
-            sql = "INSERT "
+            query = "INSERT "
                     + "INTO `tb_item` "
                     + "(`description`, `character`, `type`, `price`, `bonus_attack`, `bonus_defense`) "
                     + "VALUES "
                     + "(?, ?, ?, ?, ?, ?);";
             try
             {
-                PreparedStatement prepare = Connect.getConnect().prepareStatement(sql);
+                PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
                 prepare.setString(1, this.item.getDescription());
                 prepare.setString(2, this.item.getCharacter());
                 prepare.setString(3, this.item.getType());
@@ -361,14 +361,14 @@ public class WarriorCheck extends javax.swing.JFrame {
         /*
         ATUALIZANDO GUERREIRO
         */
-        sql = "INSERT "
+        query = "INSERT "
                 + "INTO `tb_warrior` "
                 + "(`name`, `health_points`, `attack_points`, `defense_points`, `strength_points`, `speed_points`) "
                 + "VALUES "
                 + "(?, ?, ?, ?, ?, ?);";
         try
         {
-            PreparedStatement prepare = Connect.getConnect().prepareStatement(sql);
+            PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
             prepare.setString(1, this.warrior.getName());
             prepare.setInt(2, this.warrior.getHealthPoints());
             prepare.setInt(3, this.warrior.getAttackPoints());
@@ -388,11 +388,11 @@ public class WarriorCheck extends javax.swing.JFrame {
 
     private Warrior searchWarrior() {
 
-        String sql = "SELECT * FROM `tb_warrior`;";
+        String query = "SELECT * FROM `tb_warrior`;";
 
         try
         {
-            PreparedStatement prepare = Connect.getConnect().prepareStatement(sql);
+            PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
             ResultSet result = prepare.executeQuery();
             result.next();
 
@@ -412,11 +412,11 @@ public class WarriorCheck extends javax.swing.JFrame {
 
     private void printWarrior() {
 
-        String sql = "SELECT * FROM `tb_warrior`;";
+        String query = "SELECT * FROM `tb_warrior`;";
 
         try
         {
-            PreparedStatement preparacaoDaInstrucao = Connect.getConnect().prepareStatement(sql);
+            PreparedStatement preparacaoDaInstrucao = Connect.getConnect().prepareStatement(query);
             ResultSet result = preparacaoDaInstrucao.executeQuery();
 
             while (result.next())

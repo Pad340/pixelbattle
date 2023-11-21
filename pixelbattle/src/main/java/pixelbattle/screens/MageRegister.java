@@ -44,7 +44,6 @@ public class MageRegister extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         regenerationPoints = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
-        itemsMage = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,69 +52,31 @@ public class MageRegister extends javax.swing.JFrame {
 
         jLabel2.setText("Nome");
 
-        name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("Pontos de Vida");
 
         healthPoints.setEditable(false);
         healthPoints.setText("100");
-        healthPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                healthPointsActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("Pontos de Ataque");
 
         attackPoints.setEditable(false);
-        attackPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                attackPointsActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Pontos de Defesa");
 
         defensePoints.setEditable(false);
-        defensePoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                defensePointsActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Sabedoria");
 
         knowledgePoints.setEditable(false);
-        knowledgePoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                knowledgePointsActionPerformed(evt);
-            }
-        });
 
         jLabel7.setText("Regeneração");
 
         regenerationPoints.setEditable(false);
-        regenerationPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regenerationPointsActionPerformed(evt);
-            }
-        });
 
         saveButton.setText("Salvar Mago");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
-            }
-        });
-
-        itemsMage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Itens", "Cajado", "Escudo de mana" }));
-        itemsMage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemsMageActionPerformed(evt);
             }
         });
 
@@ -142,9 +103,7 @@ public class MageRegister extends javax.swing.JFrame {
                 .addComponent(mageImage, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(itemsMage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(182, 182, 182)
                 .addComponent(saveButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -179,38 +138,12 @@ public class MageRegister extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(regenerationPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveButton)
-                    .addComponent(itemsMage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(saveButton)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
-
-    private void healthPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_healthPointsActionPerformed
-
-    private void attackPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_attackPointsActionPerformed
-
-    private void defensePointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defensePointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_defensePointsActionPerformed
-
-    private void knowledgePointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_knowledgePointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_knowledgePointsActionPerformed
-
-    private void regenerationPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regenerationPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_regenerationPointsActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         Mage mage = new Mage();
@@ -224,34 +157,6 @@ public class MageRegister extends javax.swing.JFrame {
 
         save(mage);
     }//GEN-LAST:event_saveButtonActionPerformed
-
-    private void itemsMageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsMageActionPerformed
-        /*String itemSelect = itemsMage.getSelectedItem().toString();
-
-        if (itemSelect != "Itens") {
-            Item item = new Item();
-
-            if (itemSelect == "Cajado") {
-                item.setDescription("Um cajado feito do tronco de Prometheus, o pinheiro de 5 mil anos. Garante poder de ataque extra");
-                item.setCharacter("Mago");
-                item.setType("Ataque");
-                item.setPrice(10);
-                item.setBonusAttack((int)(Math.random() * (10 - 2 + 1) + 2));
-
-                saveItem(item);
-
-            } else if(itemSelect == "Escudo de mana") {
-                item.setDescription("Um escudo produzido a partir da mana do usuário. Garante proteção extra");
-                item.setCharacter("Mago");
-                item.setType("Defesa");
-                item.setPrice(10);
-                item.setBonusAttack((int)(Math.random() * (10 - 2 + 1) + 2));
-
-                saveItem(item);
-            }
-
-        }*/
-    }//GEN-LAST:event_itemsMageActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -289,7 +194,6 @@ public class MageRegister extends javax.swing.JFrame {
     private javax.swing.JTextField attackPoints;
     private javax.swing.JTextField defensePoints;
     private javax.swing.JTextField healthPoints;
-    private javax.swing.JComboBox<String> itemsMage;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -304,13 +208,13 @@ public class MageRegister extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void save(Mage mage) {
-        String sql = "INSERT "
+        String query = "INSERT "
                 + "INTO `tb_mage` "
                 + "(`name`, `health_points`, `attack_points`, `defense_points`, `knowledge_points`, `regeneration_points`) "
                 + "VALUES "
                 + "(?, ?, ?, ?, ?, ?);";
         try {
-                PreparedStatement prepare = Connect.getConnect().prepareStatement(sql);
+                PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
                 prepare.setString(1, mage.getName());
                 prepare.setInt(2, mage.getHealthPoints());
                 prepare.setInt(3, mage.getAttackPoints());
@@ -320,7 +224,8 @@ public class MageRegister extends javax.swing.JFrame {
                 prepare.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
                 this.dispose(); // libera a memória da janela
-                new SelectionChar().setVisible(true); // exibe a tela inicial
+                SelectionPlayer.playerCount++;
+                new SelectionPlayer().setVisible(true); // exibe a tela inicial
         } catch (Exception exception) {
                 exception.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Erro ao salvar!");

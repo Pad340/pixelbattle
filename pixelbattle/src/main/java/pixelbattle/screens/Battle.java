@@ -1,12 +1,21 @@
 package pixelbattle.screens;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import pixelbattle.classes.Mage;
 import pixelbattle.classes.Warrior;
+import pixelbattle.connect.Connect;
 
 public class Battle extends javax.swing.JFrame {
-    
+
     public Battle() {
         initComponents();
+        
+        
+        
+        player1Name.setText();
+        player2Name.setText();
     }
 
     /**
@@ -18,9 +27,25 @@ public class Battle extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        advanceButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         itemP1Button = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        itemP2Button = new javax.swing.JButton();
+        versus = new javax.swing.JTextField();
+        player1Name = new javax.swing.JTextField();
+        player2Name = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        advanceButton.setText("Avançar");
+        advanceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                advanceButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Foto Player 2");
 
         itemP1Button.setText("Equipar item");
         itemP1Button.addActionListener(new java.awt.event.ActionListener() {
@@ -29,20 +54,69 @@ public class Battle extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Foto Player 1");
+
+        itemP2Button.setText("Equipar item");
+        itemP2Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemP2ButtonActionPerformed(evt);
+            }
+        });
+
+        versus.setEditable(false);
+        versus.setText("VS");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(versus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(itemP1Button)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(itemP2Button)
+                .addGap(62, 62, 62))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(advanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(itemP1Button)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addComponent(player1Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(player2Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(264, Short.MAX_VALUE)
-                .addComponent(itemP1Button)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(player1Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(player2Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(versus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(advanceButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(itemP1Button)
+                    .addComponent(itemP2Button))
                 .addContainerGap())
         );
 
@@ -50,8 +124,40 @@ public class Battle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemP1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemP1ButtonActionPerformed
-        
+/*String itemSelect = itemsMage.getSelectedItem().toString();
+
+        if (itemSelect != "Itens") {
+            Item item = new Item();
+
+            if (itemSelect == "Cajado") {
+                item.setDescription("Um cajado feito do tronco de Prometheus, o pinheiro de 5 mil anos. Garante poder de ataque extra");
+                item.setCharacter("Mago");
+                item.setType("Ataque");
+                item.setPrice(10);
+                item.setBonusAttack((int)(Math.random() * (10 - 2 + 1) + 2));
+
+                saveItem(item);
+
+            } else if(itemSelect == "Escudo de mana") {
+                item.setDescription("Um escudo produzido a partir da mana do usuário. Garante proteção extra");
+                item.setCharacter("Mago");
+                item.setType("Defesa");
+                item.setPrice(10);
+                item.setBonusAttack((int)(Math.random() * (10 - 2 + 1) + 2));
+
+                saveItem(item);
+            }
+
+        }*/
     }//GEN-LAST:event_itemP1ButtonActionPerformed
+
+    private void itemP2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemP2ButtonActionPerformed
+
+    }//GEN-LAST:event_itemP2ButtonActionPerformed
+
+    private void advanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advanceButtonActionPerformed
+        
+    }//GEN-LAST:event_advanceButtonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -59,27 +165,20 @@ public class Battle extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Battle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(Battle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Battle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Battle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -93,6 +192,69 @@ public class Battle extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton advanceButton;
     private javax.swing.JButton itemP1Button;
+    private javax.swing.JButton itemP2Button;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField player1Name;
+    private javax.swing.JTextField player2Name;
+    private javax.swing.JTextField versus;
     // End of variables declaration//GEN-END:variables
+
+    private Warrior callWarrior(Warrior warrior) {
+        /*
+         * CHAMANDO GUERREIRO
+         */
+        String query = "SELECT * FROM `tb_warrior`";
+
+        try {
+            // Executa a consulta
+            Statement prepare = Connect.getConnect().createStatement();
+            ResultSet result = prepare.executeQuery(query);
+
+            // Processa os resultados
+            while (result.next()) {
+                warrior.setName(result.getString("name"));
+                warrior.setAttackPoints(result.getInt("attack_points"));
+                warrior.setDefensePoints(result.getInt("defense_points"));
+                warrior.setStrengthPoints(result.getInt("strength_points"));
+                warrior.setSpeedPoints(result.getInt("speed_points"));
+            }
+            JOptionPane.showMessageDialog(this, "Guerreiro chamado com sucesso!");
+            return warrior;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao salvar guerreiro!");
+            return null;
+        }
+    }
+    
+    private Mage callMage(Mage mage) {
+        /*
+         * CHAMANDO MAGO
+         */
+        String query = "SELECT * FROM `tb_mage`";
+
+        try {
+            // Executa a consulta
+            Statement prepare = Connect.getConnect().createStatement();
+            ResultSet result = prepare.executeQuery(query);
+
+            // Processa os resultados
+            while (result.next()) {
+                mage.setName(result.getString("name"));
+                mage.setAttackPoints(result.getInt("attack_points"));
+                mage.setDefensePoints(result.getInt("defense_points"));
+                mage.setKnowledgePoints(result.getInt("strength_points"));
+                mage.setRegenerationPoints(result.getInt("speed_points"));
+            }
+            JOptionPane.showMessageDialog(this, "Guerreiro chamado com sucesso!");
+            return mage;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao salvar guerreiro!");
+            return null;
+        }
+    }
 }

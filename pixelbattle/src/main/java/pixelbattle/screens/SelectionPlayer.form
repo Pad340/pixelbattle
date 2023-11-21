@@ -31,6 +31,11 @@
               </Group>
               <EmptySpace pref="139" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="battleButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -40,7 +45,9 @@
               <Component id="P1Button" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               <Component id="P2Button" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="112" max="32767" attributes="0"/>
+              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <Component id="battleButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,9 +64,19 @@
     <Component class="javax.swing.JButton" name="P2Button">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar jogador 2"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="P2ButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="battleButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Batalha"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="battleButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -54,57 +54,26 @@ public class WarriorRegister extends javax.swing.JFrame {
 
         jLabel2.setText("Nome");
 
-        name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("Pontos de Vida");
 
         healthPoints.setEditable(false);
         healthPoints.setText("100");
-        healthPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                healthPointsActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("Pontos de Ataque");
 
         attackPoints.setEditable(false);
-        attackPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                attackPointsActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Pontos de Defesa");
 
         defensePoints.setEditable(false);
-        defensePoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                defensePointsActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Força");
 
         strengthPoints.setEditable(false);
-        strengthPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                strengthPointsActionPerformed(evt);
-            }
-        });
 
         jLabel7.setText("Velocidade");
 
         speedPoints.setEditable(false);
-        speedPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                speedPointsActionPerformed(evt);
-            }
-        });
 
         saveButton.setText("Salvar Guerreiro");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -135,11 +104,12 @@ public class WarriorRegister extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(attackPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(warriorImage, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
+                        .addComponent(warriorImage, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(177, 177, 177)
-                        .addComponent(saveButton)))
-                .addGap(86, 86, 86))
+                        .addComponent(saveButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,30 +149,6 @@ public class WarriorRegister extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
-
-    private void healthPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_healthPointsActionPerformed
-
-    private void attackPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_attackPointsActionPerformed
-
-    private void defensePointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defensePointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_defensePointsActionPerformed
-
-    private void strengthPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strengthPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_strengthPointsActionPerformed
-
-    private void speedPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speedPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_speedPointsActionPerformed
-
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
 
         this.warrior.setName(name.getText());
@@ -221,27 +167,20 @@ public class WarriorRegister extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -277,14 +216,13 @@ public class WarriorRegister extends javax.swing.JFrame {
         /*
          * SALVANDO GUERREIRO
          */
-        String sql = "INSERT "
+        String query = "INSERT "
                 + "INTO `tb_warrior` "
                 + "(`name`, `health_points`, `attack_points`, `defense_points`, `strength_points`, `speed_points`) "
                 + "VALUES "
                 + "(?, ?, ?, ?, ?, ?);";
-        try
-        {
-            PreparedStatement prepare = Connect.getConnect().prepareStatement(sql);
+        try {
+            PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
             prepare.setString(1, this.warrior.getName());
             prepare.setInt(2, this.warrior.getHealthPoints());
             prepare.setInt(3, this.warrior.getAttackPoints());
@@ -294,9 +232,13 @@ public class WarriorRegister extends javax.swing.JFrame {
             prepare.executeUpdate();
             JOptionPane.showMessageDialog(this, "Guerreiro salvo com sucesso!");
             this.dispose(); // libera a memória da janela
-            new SelectionChar().setVisible(true); // exibe a tela inicial
-        } catch (Exception exception)
-        {
+            SelectionPlayer.playerCount++;
+            if (SelectionPlayer.playerCount == 1) {
+                // PAREI AQUI
+            }
+            
+            new SelectionPlayer().setVisible(true); // exibe a tela inicial
+        } catch (Exception exception) {
             exception.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erro ao salvar guerreiro!");
         }

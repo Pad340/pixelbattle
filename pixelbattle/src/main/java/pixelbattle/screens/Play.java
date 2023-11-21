@@ -4,6 +4,7 @@ public class Play extends javax.swing.JFrame {
 
     public Play() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -47,7 +48,9 @@ public class Play extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
-        new SelectionPlayer().setVisible(true);
+        SelectionPlayer selectionPlayer = new SelectionPlayer();
+        selectionPlayer.setLocationRelativeTo(this);
+        selectionPlayer.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_playButtonActionPerformed
 

@@ -44,9 +44,7 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Component id="itemsMage" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
               <Component id="saveButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -85,10 +83,7 @@
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="saveButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="itemsMage" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="saveButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -107,9 +102,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="name">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -121,9 +113,6 @@
         <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="100"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="healthPointsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -134,9 +123,6 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="attackPointsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -147,9 +133,6 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="defensePointsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -160,9 +143,6 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="knowledgePointsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -173,9 +153,6 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regenerationPointsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="saveButton">
       <Properties>
@@ -184,23 +161,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="itemsMage">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Itens"/>
-            <StringItem index="1" value="Cajado"/>
-            <StringItem index="2" value="Escudo de mana"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemsMageActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

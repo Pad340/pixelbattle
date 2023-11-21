@@ -70,19 +70,6 @@ CREATE TABLE `tb_mage` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_player`
---
-
-CREATE TABLE `tb_player` (
-  `id_player` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `points` int(11) NOT NULL,
-  `datetime` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `tb_warrior`
 --
 
@@ -119,12 +106,6 @@ ALTER TABLE `tb_mage`
   ADD PRIMARY KEY (`id_mage`);
 
 --
--- Índices para tabela `tb_player`
---
-ALTER TABLE `tb_player`
-  ADD PRIMARY KEY (`id_player`);
-
---
 -- Índices para tabela `tb_warrior`
 --
 ALTER TABLE `tb_warrior`
@@ -147,27 +128,10 @@ ALTER TABLE `tb_mage`
   MODIFY `id_mage` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tb_player`
---
-ALTER TABLE `tb_player`
-  MODIFY `id_player` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de tabela `tb_warrior`
 --
 ALTER TABLE `tb_warrior`
   MODIFY `id_warrior` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `tb_battle`
---
-ALTER TABLE `tb_battle`
-  ADD CONSTRAINT `tb_battle_ibfk_1` FOREIGN KEY (`fk_player`) REFERENCES `tb_player` (`id_player`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

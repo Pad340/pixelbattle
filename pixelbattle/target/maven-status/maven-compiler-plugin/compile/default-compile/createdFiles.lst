@@ -3,6 +3,7 @@ pixelbattle\screens\SelectionChar.class
 pixelbattle\screens\WarriorCheck$9.class
 pixelbattle\screens\WarriorRegister$7.class
 pixelbattle\screens\SelectionChar$3.class
+pixelbattle\screens\Battle$3.class
 pixelbattle\screens\SelectionPlayer$2.class
 pixelbattle\screens\MageRegister$8.class
 pixelbattle\screens\Play$2.class
@@ -17,9 +18,9 @@ pixelbattle\screens\WarriorRegister$1.class
 pixelbattle\screens\WarriorRegister$5.class
 pixelbattle\screens\MageRegister$2.class
 pixelbattle\connect\Connect.class
+pixelbattle\screens\Battle$4.class
 pixelbattle\classes\Item.class
 pixelbattle\classes\Character.class
-pixelbattle\screens\MageRegister$9.class
 pixelbattle\screens\Play$1.class
 pixelbattle\screens\WarriorCheck$1.class
 pixelbattle\screens\SelectionPlayer$3.class
@@ -34,6 +35,7 @@ pixelbattle\screens\MageRegister$6.class
 pixelbattle\screens\WarriorCheck$4.class
 pixelbattle\screens\MageRegister$3.class
 pixelbattle\screens\WarriorCheck$7.class
+pixelbattle\screens\SelectionPlayer$4.class
 pixelbattle\screens\SelectionPlayer.class
 pixelbattle\screens\WarriorCheck$3.class
 pixelbattle\screens\Battle$2.class

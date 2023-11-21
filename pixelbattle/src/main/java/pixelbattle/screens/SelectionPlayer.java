@@ -1,9 +1,22 @@
 package pixelbattle.screens;
 
 public class SelectionPlayer extends javax.swing.JFrame {
-    
+
+    public static int playerCount = 0;
+    public static String player1Selection = "";
+    public static String player2Selection = "";
+
     public SelectionPlayer() {
         initComponents();
+        if (playerCount == 1) {
+            P1Button.setEnabled(false);
+            P2Button.setEnabled(true);
+        }
+        if (playerCount == 2) {
+            P1Button.setEnabled(false);
+            P2Button.setEnabled(false);
+            battleButton.setEnabled(true);
+        }
     }
 
     /**
@@ -17,6 +30,7 @@ public class SelectionPlayer extends javax.swing.JFrame {
 
         P1Button = new javax.swing.JButton();
         P2Button = new javax.swing.JButton();
+        battleButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -28,9 +42,18 @@ public class SelectionPlayer extends javax.swing.JFrame {
         });
 
         P2Button.setText("Cadastrar jogador 2");
+        P2Button.setEnabled(false);
         P2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 P2ButtonActionPerformed(evt);
+            }
+        });
+
+        battleButton.setText("Batalha");
+        battleButton.setEnabled(false);
+        battleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                battleButtonActionPerformed(evt);
             }
         });
 
@@ -44,6 +67,10 @@ public class SelectionPlayer extends javax.swing.JFrame {
                     .addComponent(P2Button)
                     .addComponent(P1Button))
                 .addContainerGap(139, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(battleButton)
+                .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -52,7 +79,9 @@ public class SelectionPlayer extends javax.swing.JFrame {
                 .addComponent(P1Button)
                 .addGap(67, 67, 67)
                 .addComponent(P2Button)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(battleButton)
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -68,33 +97,31 @@ public class SelectionPlayer extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_P2ButtonActionPerformed
 
+    private void battleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_battleButtonActionPerformed
+        new Battle().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_battleButtonActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(SelectionPlayer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(SelectionPlayer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(SelectionPlayer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SelectionPlayer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -106,11 +133,10 @@ public class SelectionPlayer extends javax.swing.JFrame {
             }
         });
     }
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton P1Button;
     private javax.swing.JButton P2Button;
+    private javax.swing.JButton battleButton;
     // End of variables declaration//GEN-END:variables
 }
