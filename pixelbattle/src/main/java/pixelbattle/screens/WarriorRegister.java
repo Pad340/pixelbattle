@@ -221,8 +221,8 @@ public class WarriorRegister extends javax.swing.JFrame {
         /*
          * SALVANDO GUERREIRO
          */
-        String query = "INSERT "
-                + "INTO `warrior` "
+        String query = "INSERT INTO "
+                + "`warrior` "
                 + "(`name`, `health_points`, `attack_points`, `defense_points`, `strength_points`, `speed_points`) "
                 + "VALUES "
                 + "(?, ?, ?, ?, ?, ?);";
@@ -252,8 +252,8 @@ public class WarriorRegister extends javax.swing.JFrame {
                     break;
             }
             
-            new SelectionPlayer().setVisible(true); // Volta para a seleção de jogador
             this.dispose(); // Fecha a janela de cadastro
+            new SelectionPlayer().setVisible(true); // Volta para a seleção de jogador
         } catch (HeadlessException | SQLException exception)
         {
             JOptionPane.showMessageDialog(this, exception.getMessage());

@@ -50,7 +50,7 @@ public class MageRegister extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         warriorImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        warriorImage.setText("Foto do Gueirreiro");
+        warriorImage.setText("Foto do Mago");
 
         jLabel2.setText("Nome");
 
@@ -67,15 +67,16 @@ public class MageRegister extends javax.swing.JFrame {
 
         defensePoints.setEditable(false);
 
-        jLabel6.setText("Força");
+        jLabel6.setText("Sabedoria");
 
         knowledgePoints.setEditable(false);
 
-        jLabel7.setText("Velocidade");
+        jLabel7.setText("Regeneração");
 
         regenerationPoints.setEditable(false);
 
         saveButton.setText("Salvar Guerreiro");
+        saveButton.setActionCommand("Salvar Mago");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
@@ -162,7 +163,7 @@ public class MageRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     public static void main(String args[]) {
-        
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -192,7 +193,7 @@ public class MageRegister extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MageRegister().setVisible(true);
@@ -222,8 +223,8 @@ public class MageRegister extends javax.swing.JFrame {
         /*
          * SALVANDO MAGO
          */
-        String query = "INSERT "
-                + "INTO `mage` "
+        String query = "INSERT INTO "
+                + "`mage` "
                 + "(`name`, `health_points`, `attack_points`, `defense_points`, `knowledge_points`, `regeneration_points`) "
                 + "VALUES "
                 + "(?, ?, ?, ?, ?, ?);";
@@ -238,7 +239,7 @@ public class MageRegister extends javax.swing.JFrame {
             prepare.setInt(6, this.mage.getRegenerationPoints());
             prepare.executeUpdate(); // Salva o mago
             JOptionPane.showMessageDialog(this, "Mago salvo com sucesso!");
-            
+
             SelectionPlayer.playerCount++; // Conta a quantidade total de jogadores
             switch (SelectionPlayer.playerCount) // Verifica qual jogador está cadastrando o mago
             {
@@ -252,9 +253,9 @@ public class MageRegister extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Erro ao salvar mago!");
                     break;
             }
-            
-            new SelectionPlayer().setVisible(true); // Volta para a seleção de jogador
             this.dispose(); // Fecha a janela de cadastro
+            new SelectionPlayer().setVisible(true); // Volta para a seleção de jogador
+
         } catch (HeadlessException | SQLException exception)
         {
             JOptionPane.showMessageDialog(this, exception.getMessage());

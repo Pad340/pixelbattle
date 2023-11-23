@@ -97,7 +97,7 @@
     <Component class="javax.swing.JLabel" name="warriorImage">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Foto do Gueirreiro"/>
+        <Property name="text" type="java.lang.String" value="Foto do Mago"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -140,7 +140,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="For&#xe7;a"/>
+        <Property name="text" type="java.lang.String" value="Sabedoria"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="knowledgePoints">
@@ -150,7 +150,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Velocidade"/>
+        <Property name="text" type="java.lang.String" value="Regenera&#xe7;&#xe3;o"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="regenerationPoints">
@@ -161,6 +161,7 @@
     <Component class="javax.swing.JButton" name="saveButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar Guerreiro"/>
+        <Property name="actionCommand" type="java.lang.String" value="Salvar Mago"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
