@@ -25,8 +25,7 @@ public class Warrior extends Character {
     public String toString() {
         return "Warrior{" + "name=" + this.getName() + ", healthPoints=" + this.getHealthPoints()
                 + ", attackPoints=" + this.getAttackPoints() + ", defensePoints="
-                + this.getDefensePoints() + ", strengthPoints=" + strengthPoints + ", speedPoints=" + speedPoints 
-                + ", item=" + this.getItem().getDescription() + "}";
+                + this.getDefensePoints() + ", strengthPoints=" + strengthPoints + ", speedPoints=" + speedPoints + "}";
     }
      
 }

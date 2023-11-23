@@ -1,20 +1,20 @@
 package pixelbattle.screens;
 
+import java.awt.HeadlessException;
 import pixelbattle.connect.Connect;
 import pixelbattle.classes.Warrior;
-import pixelbattle.classes.Item;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class WarriorRegister extends javax.swing.JFrame {
 
     private Warrior warrior = new Warrior();
-    private Item item = new Item();
 
     public WarriorRegister() {
         initComponents();
 
-        // Gerar um inteiro entre min e max
+        // Gera um inteiro entre min e max
         int attack = (int) (Math.random() * (20 - 15 + 1) + 15);
         attackPoints.setText("" + attack);
 
@@ -162,31 +162,36 @@ public class WarriorRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new WarriorRegister().setVisible(true);
@@ -217,11 +222,12 @@ public class WarriorRegister extends javax.swing.JFrame {
          * SALVANDO GUERREIRO
          */
         String query = "INSERT "
-                + "INTO `tb_warrior` "
+                + "INTO `warrior` "
                 + "(`name`, `health_points`, `attack_points`, `defense_points`, `strength_points`, `speed_points`) "
                 + "VALUES "
                 + "(?, ?, ?, ?, ?, ?);";
-        try {
+        try
+        {
             PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
             prepare.setString(1, this.warrior.getName());
             prepare.setInt(2, this.warrior.getHealthPoints());
@@ -229,18 +235,28 @@ public class WarriorRegister extends javax.swing.JFrame {
             prepare.setInt(4, this.warrior.getDefensePoints());
             prepare.setInt(5, this.warrior.getStrengthPoints());
             prepare.setInt(6, this.warrior.getSpeedPoints());
-            prepare.executeUpdate();
+            prepare.executeUpdate(); // Salva o guerreiro
             JOptionPane.showMessageDialog(this, "Guerreiro salvo com sucesso!");
-            this.dispose(); // libera a memória da janela
-            SelectionPlayer.playerCount++;
-            if (SelectionPlayer.playerCount == 1) {
-                // PAREI AQUI
+            
+            SelectionPlayer.playerCount++; // Conta a quantidade total de jogadores
+            switch (SelectionPlayer.playerCount) // Verifica qual jogador está cadastrando o guerreiro
+            {
+                case 1:
+                    SelectionPlayer.player1Selection = "warrior";
+                    break;
+                case 2:
+                    SelectionPlayer.player2Selection = "warrior";
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(this, "Erro ao salvar guerreiro!");
+                    break;
             }
             
-            new SelectionPlayer().setVisible(true); // exibe a tela inicial
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Erro ao salvar guerreiro!");
+            new SelectionPlayer().setVisible(true); // Volta para a seleção de jogador
+            this.dispose(); // Fecha a janela de cadastro
+        } catch (HeadlessException | SQLException exception)
+        {
+            JOptionPane.showMessageDialog(this, exception.getMessage());
         }
     }
 }

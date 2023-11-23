@@ -1,18 +1,20 @@
 package pixelbattle.screens;
 
+import java.awt.HeadlessException;
 import pixelbattle.connect.Connect;
 import pixelbattle.classes.Mage;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class MageRegister extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CadastroGuerreiro
-     */
+    private Mage mage = new Mage();
+
     public MageRegister() {
         initComponents();
-        // Gerar um inteiro entre min e max
+
+        // Gera um inteiro entre min e max
         int attack = (int) (Math.random() * (20 - 15 + 1) + 15);
         attackPoints.setText("" + attack);
 
@@ -30,7 +32,7 @@ public class MageRegister extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mageImage = new javax.swing.JLabel();
+        warriorImage = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         name = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -47,8 +49,8 @@ public class MageRegister extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mageImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mageImage.setText("Foto do Mago");
+        warriorImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        warriorImage.setText("Foto do Gueirreiro");
 
         jLabel2.setText("Nome");
 
@@ -65,15 +67,15 @@ public class MageRegister extends javax.swing.JFrame {
 
         defensePoints.setEditable(false);
 
-        jLabel6.setText("Sabedoria");
+        jLabel6.setText("Força");
 
         knowledgePoints.setEditable(false);
 
-        jLabel7.setText("Regeneração");
+        jLabel7.setText("Velocidade");
 
         regenerationPoints.setEditable(false);
 
-        saveButton.setText("Salvar Mago");
+        saveButton.setText("Salvar Guerreiro");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
@@ -85,34 +87,36 @@ public class MageRegister extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(regenerationPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(defensePoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(knowledgePoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel2)
-                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(healthPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(attackPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mageImage, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(regenerationPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(defensePoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(knowledgePoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2)
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(healthPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(attackPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(warriorImage, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(saveButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(182, 182, 182)
-                .addComponent(saveButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(mageImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(warriorImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -146,43 +150,49 @@ public class MageRegister extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        Mage mage = new Mage();
 
-        mage.setName(name.getText());
-        mage.setHealthPoints(Integer.parseInt(healthPoints.getText()));
-        mage.setAttackPoints(Integer.parseInt(attackPoints.getText()));
-        mage.setDefensePoints(Integer.parseInt(defensePoints.getText()));
-        mage.setKnowledgePoints(Integer.parseInt(knowledgePoints.getText()));
-        mage.setRegenerationPoints(Integer.parseInt(regenerationPoints.getText()));
+        this.mage.setName(name.getText());
+        this.mage.setHealthPoints(Integer.parseInt(healthPoints.getText()));
+        this.mage.setAttackPoints(Integer.parseInt(attackPoints.getText()));
+        this.mage.setDefensePoints(Integer.parseInt(defensePoints.getText()));
+        this.mage.setKnowledgePoints(Integer.parseInt(knowledgePoints.getText()));
+        this.mage.setRegenerationPoints(Integer.parseInt(regenerationPoints.getText()));
 
-        save(mage);
+        save();
     }//GEN-LAST:event_saveButtonActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(MageRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(MageRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(MageRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(MageRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
         
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MageRegister().setVisible(true);
@@ -201,34 +211,53 @@ public class MageRegister extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField knowledgePoints;
-    private javax.swing.JLabel mageImage;
     private javax.swing.JTextField name;
     private javax.swing.JTextField regenerationPoints;
     private javax.swing.JButton saveButton;
+    private javax.swing.JLabel warriorImage;
     // End of variables declaration//GEN-END:variables
 
-    private void save(Mage mage) {
+    private void save() {
+
+        /*
+         * SALVANDO MAGO
+         */
         String query = "INSERT "
-                + "INTO `tb_mage` "
+                + "INTO `mage` "
                 + "(`name`, `health_points`, `attack_points`, `defense_points`, `knowledge_points`, `regeneration_points`) "
                 + "VALUES "
                 + "(?, ?, ?, ?, ?, ?);";
-        try {
-                PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
-                prepare.setString(1, mage.getName());
-                prepare.setInt(2, mage.getHealthPoints());
-                prepare.setInt(3, mage.getAttackPoints());
-                prepare.setInt(4, mage.getDefensePoints());
-                prepare.setInt(5, mage.getKnowledgePoints());
-                prepare.setInt(6, mage.getRegenerationPoints());
-                prepare.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
-                this.dispose(); // libera a memória da janela
-                SelectionPlayer.playerCount++;
-                new SelectionPlayer().setVisible(true); // exibe a tela inicial
-        } catch (Exception exception) {
-                exception.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Erro ao salvar!");
+        try
+        {
+            PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
+            prepare.setString(1, this.mage.getName());
+            prepare.setInt(2, this.mage.getHealthPoints());
+            prepare.setInt(3, this.mage.getAttackPoints());
+            prepare.setInt(4, this.mage.getDefensePoints());
+            prepare.setInt(5, this.mage.getKnowledgePoints());
+            prepare.setInt(6, this.mage.getRegenerationPoints());
+            prepare.executeUpdate(); // Salva o mago
+            JOptionPane.showMessageDialog(this, "Mago salvo com sucesso!");
+            
+            SelectionPlayer.playerCount++; // Conta a quantidade total de jogadores
+            switch (SelectionPlayer.playerCount) // Verifica qual jogador está cadastrando o mago
+            {
+                case 1:
+                    SelectionPlayer.player1Selection = "mage";
+                    break;
+                case 2:
+                    SelectionPlayer.player2Selection = "mage";
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(this, "Erro ao salvar mago!");
+                    break;
+            }
+            
+            new SelectionPlayer().setVisible(true); // Volta para a seleção de jogador
+            this.dispose(); // Fecha a janela de cadastro
+        } catch (HeadlessException | SQLException exception)
+        {
+            JOptionPane.showMessageDialog(this, exception.getMessage());
         }
     }
 }

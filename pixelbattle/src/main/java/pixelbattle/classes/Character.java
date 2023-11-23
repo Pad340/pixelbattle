@@ -1,11 +1,19 @@
 package pixelbattle.classes;
 
-abstract class Character extends Player {
+abstract class Character {
     
+    private String name;
     private int healthPoints;
     private int attackPoints;
     private int defensePoints;
-    private Item item;
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getHealthPoints() {
         return healthPoints;
@@ -29,13 +37,5 @@ abstract class Character extends Player {
 
     public void setDefensePoints(int defensePoints) {
         this.defensePoints = defensePoints;
-    }
-    
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
     }
 }

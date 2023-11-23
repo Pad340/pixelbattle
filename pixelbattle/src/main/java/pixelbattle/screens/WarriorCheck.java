@@ -1,36 +1,20 @@
 package pixelbattle.screens;
 
+import java.awt.HeadlessException;
 import pixelbattle.connect.Connect;
 import pixelbattle.classes.Warrior;
-import pixelbattle.classes.Item;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 public class WarriorCheck extends javax.swing.JFrame {
 
     private Warrior warrior = new Warrior();
-    private Item item = new Item();
 
     public WarriorCheck() {
         initComponents();
-        // Gerar um inteiro entre min e max
-        int attack = (int) (Math.random() * (20 - 15 + 1) + 15);
-        attackPoints.setText("" + attack);
-
-        int defense = (int) (Math.random() * (15 - 10 + 1) + 10);
-        defensePoints.setText("" + defense);
-
-        int strength = (int) (Math.random() * (10 - 2 + 1) + 2);
-        strengthPoints.setText("" + strength);
-
-        int speed = (int) (Math.random() * (10 - 2 + 1) + 2);
-        speedPoints.setText("" + speed);
-
-        printWarrior();
     }
 
     /**
@@ -226,50 +210,14 @@ public class WarriorCheck extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
 
-        this.warrior.setName(name.getText());
-        this.warrior.setHealthPoints(Integer.parseInt(healthPoints.getText()));
-        this.warrior.setAttackPoints(Integer.parseInt(attackPoints.getText()));
-        this.warrior.setDefensePoints(Integer.parseInt(defensePoints.getText()));
-        this.warrior.setStrengthPoints(Integer.parseInt(strengthPoints.getText()));
-        this.warrior.setSpeedPoints(Integer.parseInt(speedPoints.getText()));
-
-        update();
+        
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void itemsWarriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsWarriorActionPerformed
-        String itemSelect = itemsWarrior.getSelectedItem().toString();
-
-        if (itemSelect != "Itens")
-        {
-            if (itemSelect == "Espada(Custo: 10 Hp)")
-            {
-                this.item.setDescription("Uma espada feita de ouro. Garante poder de ataque extra");
-                this.item.setCharacter("Guerreiro");
-                this.item.setType("Ataque");
-                this.item.setPrice(10);
-                this.item.setBonusAttack((int) (Math.random() * (10 - 2 + 1) + 2));
-                
-                /* APLICANDO O ITEM */
-                this.warrior.setHealthPoints(this.warrior.getHealthPoints() - this.item.getPrice());
-                this.warrior.setAttackPoints(this.warrior.getAttackPoints() + this.item.getBonusAttack());
-
-            } else if (itemSelect == "Escudo(Custo: 10 Hp)")
-            {
-                this.item.setDescription("Um escudo forjado por Hefesto, Deus da Forja. Garante proteção extra");
-                this.item.setCharacter("Guerreiro");
-                this.item.setType("Defesa");
-                this.item.setPrice(10);
-                this.item.setBonusDefense((int) (Math.random() * (10 - 2 + 1) + 2));
-                
-                /* APLICANDO O ITEM */
-                this.warrior.setHealthPoints(this.warrior.getHealthPoints() - this.item.getPrice());
-                this.warrior.setDefensePoints(this.warrior.getDefensePoints() + this.item.getBonusDefense());
-            }
-        }
+        
     }//GEN-LAST:event_itemsWarriorActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -298,9 +246,7 @@ public class WarriorCheck extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(WarriorCheck.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new WarriorCheck().setVisible(true);
@@ -325,66 +271,6 @@ public class WarriorCheck extends javax.swing.JFrame {
     private javax.swing.JTextField speedPoints;
     private javax.swing.JTextField strengthPoints;
     // End of variables declaration//GEN-END:variables
-
-    private void update() {
-
-        String query;
-
-        if (this.item != null)
-        {
-            /*
-            SALVANDO ITEM
-            */
-            query = "INSERT "
-                    + "INTO `tb_item` "
-                    + "(`description`, `character`, `type`, `price`, `bonus_attack`, `bonus_defense`) "
-                    + "VALUES "
-                    + "(?, ?, ?, ?, ?, ?);";
-            try
-            {
-                PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
-                prepare.setString(1, this.item.getDescription());
-                prepare.setString(2, this.item.getCharacter());
-                prepare.setString(3, this.item.getType());
-                prepare.setInt(4, this.item.getPrice());
-                prepare.setInt(5, this.item.getBonusAttack());
-                prepare.setInt(6, this.item.getBonusDefense());
-                prepare.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Item salvo  com sucesso!");
-            } catch (Exception exception)
-            {
-                exception.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Erro ao salvar item!");
-            }
-        }
-
-        /*
-        ATUALIZANDO GUERREIRO
-        */
-        query = "INSERT "
-                + "INTO `tb_warrior` "
-                + "(`name`, `health_points`, `attack_points`, `defense_points`, `strength_points`, `speed_points`) "
-                + "VALUES "
-                + "(?, ?, ?, ?, ?, ?);";
-        try
-        {
-            PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
-            prepare.setString(1, this.warrior.getName());
-            prepare.setInt(2, this.warrior.getHealthPoints());
-            prepare.setInt(3, this.warrior.getAttackPoints());
-            prepare.setInt(4, this.warrior.getDefensePoints());
-            prepare.setInt(5, this.warrior.getStrengthPoints());
-            prepare.setInt(6, this.warrior.getSpeedPoints());
-            prepare.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Guerreiro salvo com sucesso!");
-            this.dispose(); // libera a memória da janela
-            new SelectionChar().setVisible(true); // exibe a tela inicial
-        } catch (Exception exception)
-        {
-            exception.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Erro ao salvar guerreiro!");
-        }
-    }
 
     private Warrior searchWarrior() {
 
