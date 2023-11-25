@@ -1,4 +1,4 @@
-package pixelbattle.screens;
+package pixelbattle.UI;
 
 import java.awt.HeadlessException;
 import pixelbattle.connect.Connect;

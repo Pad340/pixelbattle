@@ -1,6 +1,6 @@
 package pixelbattle;
 
-import pixelbattle.screens.Play;
+import pixelbattle.UI.Play;
 
 public class Main {
     public static void main(String args[]) {

@@ -1,4 +1,4 @@
-package pixelbattle.screens;
+package pixelbattle.UI;
 
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
@@ -8,12 +8,19 @@ import javax.swing.JOptionPane;
 import pixelbattle.classes.Mage;
 import pixelbattle.classes.Warrior;
 import pixelbattle.connect.Connect;
-import pixelbattle.interfaces.Item;
 
-public class Battle extends javax.swing.JFrame implements Item {
+public class Battle extends javax.swing.JFrame {
 
     public Battle() {
         initComponents();
+        
+        if (SelectionPlayer.player1Selection == "warrior") {
+            Warrior player1 = callWarrior(1);
+            
+        } else if (SelectionPlayer.player1Selection == "mage") {
+            
+            
+        }
 
     }
 
@@ -158,14 +165,15 @@ public class Battle extends javax.swing.JFrame implements Item {
     private javax.swing.JTextField versus;
     // End of variables declaration//GEN-END:variables
 
-    private Warrior callWarrior(Warrior warrior) {
-        /*
-         * CHAMANDO GUERREIRO
-         */
-        String query = "SELECT * FROM `warrior`";
+    private Warrior callWarrior(int playerID) {
 
         try
         {
+            /*
+         * CHAMANDO GUERREIRO
+         */
+            
+            String query = "SELECT * FROM `warrior` WHERE id_warrior=" + playerID;
             // Executa a consulta
             Statement prepare = Connect.getConnect().createStatement();
             ResultSet result = prepare.executeQuery(query);
@@ -192,7 +200,7 @@ public class Battle extends javax.swing.JFrame implements Item {
         /*
          * CHAMANDO MAGO
          */
-        String query = "SELECT * FROM `tb_mage`";
+        String query = "SELECT * FROM 'mage'";
 
         try
         {
@@ -216,15 +224,5 @@ public class Battle extends javax.swing.JFrame implements Item {
             JOptionPane.showMessageDialog(this, exception.getMessage());
             return null;
         }
-    }
-
-    @Override
-    public void equipItem(Character name, int itemId) {
-
-    }
-
-    @Override
-    public void updateCharacterStats(int characterId, int healthPoints, int modifiedAttack, int modifiedDefense) {
-
     }
 }

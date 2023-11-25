@@ -1,4 +1,4 @@
-package pixelbattle.screens;
+package pixelbattle.UI;
 
 import java.awt.HeadlessException;
 import pixelbattle.connect.Connect;
@@ -8,8 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import pixelbattle.interfaces.Item;
 
-public class WarriorCheck extends javax.swing.JFrame {
+public class WarriorCheck extends javax.swing.JFrame implements Item {
 
     private Warrior warrior = new Warrior();
 
@@ -272,30 +273,6 @@ public class WarriorCheck extends javax.swing.JFrame {
     private javax.swing.JTextField strengthPoints;
     // End of variables declaration//GEN-END:variables
 
-    private Warrior searchWarrior() {
-
-        String query = "SELECT * FROM `tb_warrior`;";
-
-        try
-        {
-            PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
-            ResultSet result = prepare.executeQuery();
-            result.next();
-
-            this.warrior.setName(result.getString("name"));
-            this.warrior.setHealthPoints(result.getInt("health_points"));
-            this.warrior.setAttackPoints(result.getInt("attack_points"));
-            this.warrior.setDefensePoints(result.getInt("defense_points"));
-            this.warrior.setStrengthPoints(result.getInt("strength_points"));
-            this.warrior.setSpeedPoints(result.getInt("speed_points"));
-        } catch (SQLException exception)
-        {
-            Logger.getLogger(WarriorCheck.class.getName()).log(Level.SEVERE, null, exception);
-            exception.printStackTrace();
-        }
-        return warrior;
-    }
-
     private void printWarrior() {
 
         String query = "SELECT * FROM `tb_warrior`;";
@@ -320,5 +297,17 @@ public class WarriorCheck extends javax.swing.JFrame {
             Logger.getLogger(WarriorCheck.class.getName()).log(Level.SEVERE, null, exception);
             exception.printStackTrace();
         }
+    }
+    
+    @Override
+    public void equipItem(Character name, int itemId) {
+        
+        
+        
+    }
+
+    @Override
+    public void updateCharacterStats(int characterId, int healthPoints, int modifiedAttack, int modifiedDefense) {
+
     }
 }

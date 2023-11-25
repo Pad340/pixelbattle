@@ -1,4 +1,4 @@
-package pixelbattle.screens;
+package pixelbattle.UI;
 
 public class SelectionPlayer extends javax.swing.JFrame {
 

@@ -1,4 +1,4 @@
-package pixelbattle.screens;
+package pixelbattle.UI;
 
 public class SelectionChar extends javax.swing.JFrame {
     
