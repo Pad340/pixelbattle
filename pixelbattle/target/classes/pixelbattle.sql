@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `battle` (
   `id_battle` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `fk_player` int(11) NOT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

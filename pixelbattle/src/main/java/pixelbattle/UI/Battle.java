@@ -1,9 +1,10 @@
 package pixelbattle.UI;
 
 import java.awt.HeadlessException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import pixelbattle.classes.Mage;
 import pixelbattle.classes.Warrior;
@@ -13,12 +14,30 @@ public class Battle extends javax.swing.JFrame {
 
     public Battle() {
         initComponents();
-        
+
+        /* Chamando personagens */
         if (SelectionPlayer.player1Selection == "warrior") {
             Warrior player1 = callWarrior(1);
-            
+
+            if (SelectionPlayer.player2Selection == "warrior") {
+                Warrior player2 = callWarrior(2);
+
+            } else if (SelectionPlayer.player2Selection == "mage") {
+                Mage player2 = callMage(1);
+            }
+
         } else if (SelectionPlayer.player1Selection == "mage") {
-            
+            Mage player1 = callMage(1);
+
+            if (SelectionPlayer.player2Selection == "mage") {
+                Mage player2 = callMage(2);
+
+            } else if (SelectionPlayer.player2Selection == "warrior") {
+                Warrior player2 = callWarrior(1);
+            }
+
+            // Começa a batalha
+            int howStarts = startBattle();
             
         }
 
@@ -122,27 +141,20 @@ public class Battle extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Battle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(Battle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Battle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Battle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -165,22 +177,44 @@ public class Battle extends javax.swing.JFrame {
     private javax.swing.JTextField versus;
     // End of variables declaration//GEN-END:variables
 
+    private int startBattle() {
+        Random random = new Random();
+
+        try {
+            String query = "INSERT INTO "
+                    + "`battle` "
+                    + "(`status`) "
+                    + "VALUES "
+                    + "(?);";
+
+            PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
+            prepare.setInt(1, 1);
+            prepare.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Batalha iniciada!");
+
+        } catch (HeadlessException | SQLException exception) {
+            JOptionPane.showMessageDialog(this, exception.getMessage());
+        }
+        
+        int howStarts = random.nextInt(2) + 1;
+        
+        
+        return howStarts;
+    }
+
     private Warrior callWarrior(int playerID) {
 
-        try
-        {
-            /*
-         * CHAMANDO GUERREIRO
-         */
-            
-            String query = "SELECT * FROM `warrior` WHERE id_warrior=" + playerID;
-            // Executa a consulta
-            Statement prepare = Connect.getConnect().createStatement();
-            ResultSet result = prepare.executeQuery(query);
+        try {
+            Warrior warrior = new Warrior();
+
+            /* CHAMANDO GUERREIRO */
+            String query = "SELECT * FROM `warrior` WHERE id_warrior = ?";
+            PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
+            prepare.setInt(1, playerID);
+            ResultSet result = prepare.executeQuery();
 
             // Processa os resultados
-            while (result.next())
-            {
+            while (result.next()) {
                 warrior.setName(result.getString("name"));
                 warrior.setAttackPoints(result.getInt("attack_points"));
                 warrior.setDefensePoints(result.getInt("defense_points"));
@@ -189,38 +223,34 @@ public class Battle extends javax.swing.JFrame {
             }
             JOptionPane.showMessageDialog(this, "Guerreiro chamado com sucesso!");
             return warrior;
-        } catch (HeadlessException | SQLException exception)
-        {
+        } catch (HeadlessException | SQLException exception) {
             JOptionPane.showMessageDialog(this, exception.getMessage());
             return null;
         }
     }
 
-    private Mage callMage(Mage mage) {
-        /*
-         * CHAMANDO MAGO
-         */
-        String query = "SELECT * FROM 'mage'";
+    private Mage callMage(int playerID) {
 
-        try
-        {
-            // Executa a consulta
-            Statement prepare = Connect.getConnect().createStatement();
-            ResultSet result = prepare.executeQuery(query);
+        try {
+            Mage mage = new Mage();
+
+            /* CHAMANDO GUERREIRO */
+            String query = "SELECT * FROM `mage` WHERE id_mage = ?";
+            PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
+            prepare.setInt(1, playerID);
+            ResultSet result = prepare.executeQuery();
 
             // Processa os resultados
-            while (result.next())
-            {
+            while (result.next()) {
                 mage.setName(result.getString("name"));
                 mage.setAttackPoints(result.getInt("attack_points"));
                 mage.setDefensePoints(result.getInt("defense_points"));
-                mage.setKnowledgePoints(result.getInt("strength_points"));
-                mage.setRegenerationPoints(result.getInt("speed_points"));
+                mage.setKnowledgePoints(result.getInt("knowledge_points"));
+                mage.setRegenerationPoints(result.getInt("regeneration_points"));
             }
             JOptionPane.showMessageDialog(this, "Mago chamado com sucesso!");
             return mage;
-        } catch (HeadlessException | SQLException exception)
-        {
+        } catch (HeadlessException | SQLException exception) {
             JOptionPane.showMessageDialog(this, exception.getMessage());
             return null;
         }
