@@ -28,6 +28,7 @@ public class Play extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/images/playBotton.png"))); // NOI18N
+        playButton.setBorderPainted(false);
         playButton.setContentAreaFilled(false);
         playButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -42,6 +43,7 @@ public class Play extends javax.swing.JFrame {
         logoImage.setBounds(140, 50, 680, 130);
 
         x.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/images/x.png"))); // NOI18N
+        x.setBorderPainted(false);
         x.setContentAreaFilled(false);
         x.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
