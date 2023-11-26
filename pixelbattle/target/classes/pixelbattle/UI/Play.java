@@ -35,7 +35,7 @@ public class Play extends javax.swing.JFrame {
             }
         });
         getContentPane().add(playButton);
-        playButton.setBounds(410, 410, 140, 70);
+        playButton.setBounds(410, 340, 130, 50);
 
         logoImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/images/logo.png"))); // NOI18N
         getContentPane().add(logoImage);
