@@ -14,33 +14,7 @@ public class Battle extends javax.swing.JFrame {
 
     public Battle() {
         initComponents();
-
-        /* Chamando personagens */
-        if (SelectionPlayer.player1Selection == "warrior") {
-            Warrior player1 = callWarrior(1);
-
-            if (SelectionPlayer.player2Selection == "warrior") {
-                Warrior player2 = callWarrior(2);
-
-            } else if (SelectionPlayer.player2Selection == "mage") {
-                Mage player2 = callMage(1);
-            }
-
-        } else if (SelectionPlayer.player1Selection == "mage") {
-            Mage player1 = callMage(1);
-
-            if (SelectionPlayer.player2Selection == "mage") {
-                Mage player2 = callMage(2);
-
-            } else if (SelectionPlayer.player2Selection == "warrior") {
-                Warrior player2 = callWarrior(1);
-            }
-
-            // Começa a batalha
-            int howStarts = startBattle();
-            
-        }
-
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -52,9 +26,7 @@ public class Battle extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         versus = new javax.swing.JTextField();
         player1Name = new javax.swing.JTextField();
-        player1Check = new javax.swing.JButton();
         player2Name = new javax.swing.JTextField();
-        player2Check = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,10 +44,6 @@ public class Battle extends javax.swing.JFrame {
         versus.setEditable(false);
         versus.setText("VS");
 
-        player1Check.setText("Checar personagem");
-
-        player2Check.setText("Checar personagem");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,22 +54,17 @@ public class Battle extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(player1Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(player1Name, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(player2Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(player2Name, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(versus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(player1Check))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(versus, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(player2Check)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
@@ -122,11 +85,7 @@ public class Battle extends javax.swing.JFrame {
                         .addComponent(versus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(advanceButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(player1Check)
-                    .addComponent(player2Check))
-                .addContainerGap())
+                .addGap(47, 47, 47))
         );
 
         pack();
@@ -134,6 +93,7 @@ public class Battle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void advanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advanceButtonActionPerformed
+
 
     }//GEN-LAST:event_advanceButtonActionPerformed
 
@@ -171,14 +131,12 @@ public class Battle extends javax.swing.JFrame {
     private javax.swing.JButton advanceButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton player1Check;
     private javax.swing.JTextField player1Name;
-    private javax.swing.JButton player2Check;
     private javax.swing.JTextField player2Name;
     private javax.swing.JTextField versus;
     // End of variables declaration//GEN-END:variables
 
-    private int startBattle() {
+    private void startBattle(Object p1, Object p2) {
         Random random = new Random();
 
         try {
@@ -196,14 +154,28 @@ public class Battle extends javax.swing.JFrame {
         } catch (HeadlessException | SQLException exception) {
             JOptionPane.showMessageDialog(this, exception.getMessage());
         }
-        
+
         int howStarts = random.nextInt(2) + 1;
-        
-        
-        return howStarts;
+
+        if (p1 instanceof Warrior) {
+            p1 = callWarrior(1);
+        } else if (p1 instanceof Mage) {
+             p1 = callMage(1);
+        } else {
+            System.out.println("Tipo desconhecido");
+        }
+
+        if (p2 instanceof Warrior) {
+            p2 = callWarrior(2);
+        } else if (p2 instanceof Mage) {
+            p2 = callMage(2);
+        } else {
+            System.out.println("Tipo desconhecido");
+        }
+
     }
 
-    private Warrior callWarrior(int playerID) {
+    Warrior callWarrior(int playerID) {
 
         try {
             Warrior warrior = new Warrior();
@@ -230,7 +202,7 @@ public class Battle extends javax.swing.JFrame {
         }
     }
 
-    private Mage callMage(int playerID) {
+    Mage callMage(int playerID) {
 
         try {
             Mage mage = new Mage();
@@ -256,4 +228,6 @@ public class Battle extends javax.swing.JFrame {
             return null;
         }
     }
+    
+    
 }

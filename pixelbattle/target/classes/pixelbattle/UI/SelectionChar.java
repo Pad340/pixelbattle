@@ -38,6 +38,7 @@ public class SelectionChar extends javax.swing.JFrame {
         MagoButton.setFont(new java.awt.Font("Alagard", 0, 18)); // NOI18N
         MagoButton.setForeground(new java.awt.Color(255, 255, 255));
         MagoButton.setText("Mago");
+        MagoButton.setOpaque(false);
         MagoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MagoButtonActionPerformed(evt);
@@ -62,6 +63,7 @@ public class SelectionChar extends javax.swing.JFrame {
         GuerreiroButton.setFont(new java.awt.Font("Alagard", 0, 18)); // NOI18N
         GuerreiroButton.setForeground(new java.awt.Color(255, 255, 255));
         GuerreiroButton.setText("Guerreiro");
+        GuerreiroButton.setOpaque(false);
         GuerreiroButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuerreiroButtonActionPerformed(evt);
@@ -79,7 +81,7 @@ public class SelectionChar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(x);
-        x.setBounds(840, 0, 56, 57);
+        x.setBounds(840, 0, 84, 60);
 
         image_pontoInterrogacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/questionMark.gif"))); // NOI18N
         getContentPane().add(image_pontoInterrogacao);
