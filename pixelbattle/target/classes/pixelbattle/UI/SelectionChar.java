@@ -1,7 +1,5 @@
 package pixelbattle.UI;
 
-import java.time.Clock;
-
 public class SelectionChar extends javax.swing.JFrame {
     boolean isMage = false;
     boolean isWarrior = false;
@@ -25,27 +23,28 @@ public class SelectionChar extends javax.swing.JFrame {
         image_pontoInterrogacao = new javax.swing.JLabel();
         image_warrior = new javax.swing.JLabel();
         image_mage = new javax.swing.JLabel();
+        guerreiroEscrita = new javax.swing.JLabel();
+        magoEscrita = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
+        setMaximumSize(new java.awt.Dimension(898, 708));
         setMinimumSize(new java.awt.Dimension(898, 708));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(898, 708));
         getContentPane().setLayout(null);
 
         agrupamentoEscolha.add(MagoButton);
-        MagoButton.setFont(new java.awt.Font("Alagard", 0, 18)); // NOI18N
         MagoButton.setForeground(new java.awt.Color(255, 255, 255));
-        MagoButton.setText("Mago");
-        MagoButton.setOpaque(false);
+        MagoButton.setToolTipText("");
         MagoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MagoButtonActionPerformed(evt);
             }
         });
         getContentPane().add(MagoButton);
-        MagoButton.setBounds(530, 190, 70, 30);
+        MagoButton.setBounds(510, 180, 140, 50);
 
         ConfirmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/confirmarButton.png"))); // NOI18N
         ConfirmButton.setBorderPainted(false);
@@ -60,17 +59,14 @@ public class SelectionChar extends javax.swing.JFrame {
         ConfirmButton.setBounds(360, 610, 200, 70);
 
         agrupamentoEscolha.add(GuerreiroButton);
-        GuerreiroButton.setFont(new java.awt.Font("Alagard", 0, 18)); // NOI18N
         GuerreiroButton.setForeground(new java.awt.Color(255, 255, 255));
-        GuerreiroButton.setText("Guerreiro");
-        GuerreiroButton.setOpaque(false);
         GuerreiroButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuerreiroButtonActionPerformed(evt);
             }
         });
         getContentPane().add(GuerreiroButton);
-        GuerreiroButton.setBounds(320, 190, 130, 30);
+        GuerreiroButton.setBounds(280, 180, 180, 50);
 
         x.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/x.png"))); // NOI18N
         x.setBorderPainted(false);
@@ -81,7 +77,7 @@ public class SelectionChar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(x);
-        x.setBounds(840, 0, 84, 60);
+        x.setBounds(840, 0, 56, 57);
 
         image_pontoInterrogacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/questionMark.gif"))); // NOI18N
         getContentPane().add(image_pontoInterrogacao);
@@ -96,6 +92,16 @@ public class SelectionChar extends javax.swing.JFrame {
         image_mage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/wizard.gif"))); // NOI18N
         getContentPane().add(image_mage);
         image_mage.setBounds(380, 280, 170, 260);
+
+        guerreiroEscrita.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guerreiroEscrita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/guerreiroEscrita.png"))); // NOI18N
+        getContentPane().add(guerreiroEscrita);
+        guerreiroEscrita.setBounds(290, 190, 170, 30);
+
+        magoEscrita.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        magoEscrita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/magoEscrita.png"))); // NOI18N
+        getContentPane().add(magoEscrita);
+        magoEscrita.setBounds(500, 180, 160, 50);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/backgroundEscolhaPersonagem.png"))); // NOI18N
         getContentPane().add(background);
@@ -133,14 +139,12 @@ public class SelectionChar extends javax.swing.JFrame {
         if (isWarrior == true) {
             WarriorRegister warrior = new WarriorRegister();
             warrior.setVisible(true);
-            this.setVisible(false);
-            //this.dispose(); libera a memória              
+            this.setVisible(false);        
         }
         else if (isMage == true) {
             MageRegister mage = new MageRegister();
             mage.setVisible(true);
-            this.setVisible(false);
-            //this.dispose(); libera a memória             
+            this.setVisible(false);        
         }
         else {
             System.out.println("!! Erro na seleção de personagem !!");
@@ -184,9 +188,11 @@ public class SelectionChar extends javax.swing.JFrame {
     private javax.swing.JRadioButton MagoButton;
     private javax.swing.ButtonGroup agrupamentoEscolha;
     private javax.swing.JLabel background;
+    private javax.swing.JLabel guerreiroEscrita;
     private javax.swing.JLabel image_mage;
     private javax.swing.JLabel image_pontoInterrogacao;
     private javax.swing.JLabel image_warrior;
+    private javax.swing.JLabel magoEscrita;
     private javax.swing.JButton x;
     // End of variables declaration//GEN-END:variables
 }

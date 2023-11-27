@@ -32,119 +32,137 @@ public class WarriorRegister extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        warriorImage = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        nome_text = new javax.swing.JLabel();
         name = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         healthPoints = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         attackPoints = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         defensePoints = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         strengthPoints = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         speedPoints = new javax.swing.JTextField();
+        hp_text = new javax.swing.JLabel();
+        forca_text = new javax.swing.JLabel();
+        defesa_text = new javax.swing.JLabel();
+        ataque_text = new javax.swing.JLabel();
+        velocidade_text = new javax.swing.JLabel();
         saveButton = new javax.swing.JButton();
+        x = new javax.swing.JButton();
+        warriorImage = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(899, 757));
+        setMinimumSize(new java.awt.Dimension(899, 757));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(899, 757));
+        getContentPane().setLayout(null);
 
-        warriorImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        warriorImage.setText("Foto do Gueirreiro");
+        nome_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nome_text.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/nomeEscrita.png"))); // NOI18N
+        getContentPane().add(nome_text);
+        nome_text.setBounds(540, 130, 150, 50);
 
-        jLabel2.setText("Nome");
-
-        jLabel3.setText("Pontos de Vida");
+        name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        name.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(name);
+        name.setBounds(520, 190, 200, 30);
 
         healthPoints.setEditable(false);
+        healthPoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         healthPoints.setText("100");
-
-        jLabel4.setText("Pontos de Ataque");
+        healthPoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        getContentPane().add(healthPoints);
+        healthPoints.setBounds(200, 130, 70, 30);
 
         attackPoints.setEditable(false);
-
-        jLabel5.setText("Pontos de Defesa");
+        attackPoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        attackPoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        attackPoints.setPreferredSize(new java.awt.Dimension(30, 30));
+        attackPoints.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                attackPointsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(attackPoints);
+        attackPoints.setBounds(200, 250, 70, 30);
 
         defensePoints.setEditable(false);
-
-        jLabel6.setText("Força");
+        defensePoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        defensePoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        getContentPane().add(defensePoints);
+        defensePoints.setBounds(200, 350, 70, 30);
 
         strengthPoints.setEditable(false);
-
-        jLabel7.setText("Velocidade");
+        strengthPoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        strengthPoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        getContentPane().add(strengthPoints);
+        strengthPoints.setBounds(200, 460, 70, 30);
 
         speedPoints.setEditable(false);
+        speedPoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        speedPoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        getContentPane().add(speedPoints);
+        speedPoints.setBounds(200, 570, 70, 30);
 
-        saveButton.setText("Salvar Guerreiro");
+        hp_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hp_text.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/hp.png"))); // NOI18N
+        getContentPane().add(hp_text);
+        hp_text.setBounds(130, 90, 180, 90);
+
+        forca_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        forca_text.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/strenght.png"))); // NOI18N
+        getContentPane().add(forca_text);
+        forca_text.setBounds(140, 420, 160, 90);
+
+        defesa_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        defesa_text.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/defense.png"))); // NOI18N
+        getContentPane().add(defesa_text);
+        defesa_text.setBounds(130, 310, 170, 95);
+
+        ataque_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ataque_text.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/attack.png"))); // NOI18N
+        getContentPane().add(ataque_text);
+        ataque_text.setBounds(130, 210, 180, 80);
+
+        velocidade_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        velocidade_text.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/speed.png"))); // NOI18N
+        getContentPane().add(velocidade_text);
+        velocidade_text.setBounds(130, 520, 180, 110);
+
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/confirmarButton.png"))); // NOI18N
+        saveButton.setBorderPainted(false);
+        saveButton.setContentAreaFilled(false);
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(saveButton);
+        saveButton.setBounds(350, 640, 200, 80);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(speedPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(defensePoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(strengthPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel2)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(healthPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(attackPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(warriorImage, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(saveButton)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(warriorImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(healthPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(attackPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(defensePoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(strengthPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(speedPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(saveButton)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
+        x.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/x.png"))); // NOI18N
+        x.setContentAreaFilled(false);
+        x.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xActionPerformed(evt);
+            }
+        });
+        getContentPane().add(x);
+        x.setBounds(810, 10, 50, 50);
+
+        warriorImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        warriorImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/warrior.gif"))); // NOI18N
+        getContentPane().add(warriorImage);
+        warriorImage.setBounds(450, 230, 330, 330);
+
+        background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/backgroundEscolhaPersonagem.png"))); // NOI18N
+        getContentPane().add(background);
+        background.setBounds(0, -140, 900, 900);
 
         pack();
         setLocationRelativeTo(null);
@@ -161,6 +179,18 @@ public class WarriorRegister extends javax.swing.JFrame {
 
         save();
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_xActionPerformed
+
+    private void attackPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackPointsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_attackPointsActionPerformed
+
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameActionPerformed
 
     public static void main(String args[]) {
         
@@ -201,20 +231,22 @@ public class WarriorRegister extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ataque_text;
     private javax.swing.JTextField attackPoints;
+    private javax.swing.JLabel background;
     private javax.swing.JTextField defensePoints;
+    private javax.swing.JLabel defesa_text;
+    private javax.swing.JLabel forca_text;
     private javax.swing.JTextField healthPoints;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel hp_text;
     private javax.swing.JTextField name;
+    private javax.swing.JLabel nome_text;
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField speedPoints;
     private javax.swing.JTextField strengthPoints;
+    private javax.swing.JLabel velocidade_text;
     private javax.swing.JLabel warriorImage;
+    private javax.swing.JButton x;
     // End of variables declaration//GEN-END:variables
 
     private void save() {

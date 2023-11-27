@@ -37,19 +37,11 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="163" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="versus" min="-2" pref="35" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="player1Check" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jLabel2" min="-2" pref="163" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="versus" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace pref="29" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="player2Check" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="163" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jLabel1" min="-2" pref="163" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -77,12 +69,7 @@
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="advanceButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="player1Check" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="player2Check" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -114,17 +101,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="player1Name">
     </Component>
-    <Component class="javax.swing.JButton" name="player1Check">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Checar personagem"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="player2Name">
-    </Component>
-    <Component class="javax.swing.JButton" name="player2Check">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Checar personagem"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
