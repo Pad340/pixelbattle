@@ -57,58 +57,38 @@ public class MageRegister extends javax.swing.JFrame {
 
         knowledgePoints.setEditable(false);
         knowledgePoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        knowledgePoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        knowledgePoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                knowledgePointsActionPerformed(evt);
-            }
-        });
+        knowledgePoints.setBorder(null);
         getContentPane().add(knowledgePoints);
         knowledgePoints.setBounds(200, 460, 70, 30);
 
         regenerationPoints.setEditable(false);
         regenerationPoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        regenerationPoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        regenerationPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regenerationPointsActionPerformed(evt);
-            }
-        });
+        regenerationPoints.setBorder(null);
         getContentPane().add(regenerationPoints);
         regenerationPoints.setBounds(200, 560, 70, 30);
 
         healthPoints.setEditable(false);
         healthPoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         healthPoints.setText("100");
-        healthPoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        healthPoints.setBorder(null);
         getContentPane().add(healthPoints);
         healthPoints.setBounds(200, 130, 70, 30);
 
         attackPoints.setEditable(false);
         attackPoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        attackPoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        attackPoints.setBorder(null);
         attackPoints.setPreferredSize(new java.awt.Dimension(30, 30));
-        attackPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                attackPointsActionPerformed(evt);
-            }
-        });
         getContentPane().add(attackPoints);
         attackPoints.setBounds(200, 250, 70, 30);
 
         defensePoints.setEditable(false);
         defensePoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        defensePoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        defensePoints.setBorder(null);
         getContentPane().add(defensePoints);
         defensePoints.setBounds(200, 350, 70, 30);
 
         name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        name.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
-            }
-        });
+        name.setBorder(null);
         getContentPane().add(name);
         name.setBounds(520, 190, 200, 30);
 
@@ -190,22 +170,6 @@ public class MageRegister extends javax.swing.JFrame {
 
         save();
     }//GEN-LAST:event_saveButtonActionPerformed
-
-    private void attackPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_attackPointsActionPerformed
-
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
-
-    private void knowledgePointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_knowledgePointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_knowledgePointsActionPerformed
-
-    private void regenerationPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regenerationPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_regenerationPointsActionPerformed
 
     private void xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xActionPerformed
         this.dispose();

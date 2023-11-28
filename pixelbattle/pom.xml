@@ -11,7 +11,7 @@
             <directory>src/main/java</directory>
         </resource>
      </resources>
-</build>
+    </build>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>

@@ -61,11 +61,6 @@ public class WarriorRegister extends javax.swing.JFrame {
 
         name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         name.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
-            }
-        });
         getContentPane().add(name);
         name.setBounds(520, 190, 200, 30);
 
@@ -80,11 +75,6 @@ public class WarriorRegister extends javax.swing.JFrame {
         attackPoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         attackPoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         attackPoints.setPreferredSize(new java.awt.Dimension(30, 30));
-        attackPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                attackPointsActionPerformed(evt);
-            }
-        });
         getContentPane().add(attackPoints);
         attackPoints.setBounds(200, 250, 70, 30);
 
@@ -182,14 +172,6 @@ public class WarriorRegister extends javax.swing.JFrame {
     private void xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xActionPerformed
         this.dispose();
     }//GEN-LAST:event_xActionPerformed
-
-    private void attackPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_attackPointsActionPerformed
-
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
 
     public static void main(String args[]) {
         

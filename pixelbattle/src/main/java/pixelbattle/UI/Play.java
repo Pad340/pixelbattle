@@ -16,8 +16,8 @@ public class Play extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        playButton = new javax.swing.JButton();
         logoImage = new javax.swing.JLabel();
+        playButton = new javax.swing.JButton();
         x = new javax.swing.JButton();
         backgroundGif = new javax.swing.JLabel();
 
@@ -27,7 +27,11 @@ public class Play extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(958, 519));
         getContentPane().setLayout(null);
 
-        playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/images/playBotton.png"))); // NOI18N
+        logoImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/logo.png"))); // NOI18N
+        getContentPane().add(logoImage);
+        logoImage.setBounds(140, 50, 680, 130);
+
+        playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/playBotton.png"))); // NOI18N
         playButton.setBorderPainted(false);
         playButton.setContentAreaFilled(false);
         playButton.addActionListener(new java.awt.event.ActionListener() {
@@ -38,11 +42,7 @@ public class Play extends javax.swing.JFrame {
         getContentPane().add(playButton);
         playButton.setBounds(410, 340, 130, 50);
 
-        logoImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/images/logo.png"))); // NOI18N
-        getContentPane().add(logoImage);
-        logoImage.setBounds(140, 50, 680, 130);
-
-        x.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/images/x.png"))); // NOI18N
+        x.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/x.png"))); // NOI18N
         x.setBorderPainted(false);
         x.setContentAreaFilled(false);
         x.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +53,7 @@ public class Play extends javax.swing.JFrame {
         getContentPane().add(x);
         x.setBounds(900, 10, 50, 50);
 
-        backgroundGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/images/Play_Background.gif"))); // NOI18N
+        backgroundGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/Play_Background.gif"))); // NOI18N
         getContentPane().add(backgroundGif);
         backgroundGif.setBounds(0, -20, 960, 540);
 

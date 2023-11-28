@@ -25,16 +25,21 @@ public final class Battle extends javax.swing.JFrame {
     private void initComponents() {
 
         advanceButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        fotoP2 = new javax.swing.JLabel();
+        fotoP1 = new javax.swing.JLabel();
         p1Name = new javax.swing.JTextField();
         p2Name = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         p1Health = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         p2Health = new javax.swing.JTextField();
+        x = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1098, 600));
+        setMinimumSize(new java.awt.Dimension(1098, 600));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1098, 600));
+        getContentPane().setLayout(null);
 
         advanceButton.setText("Avançar");
         advanceButton.addActionListener(new java.awt.event.ActionListener() {
@@ -42,80 +47,62 @@ public final class Battle extends javax.swing.JFrame {
                 advanceButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(advanceButton);
+        advanceButton.setBounds(152, 2997, 81, 23);
 
-        jLabel1.setText("Foto Player 2");
+        fotoP2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/wizardLeft.gif"))); // NOI18N
+        getContentPane().add(fotoP2);
+        fotoP2.setBounds(730, 300, 190, 270);
 
-        jLabel2.setText("Foto Player 1");
+        fotoP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/warrior.gif"))); // NOI18N
+        getContentPane().add(fotoP1);
+        fotoP1.setBounds(140, 270, 230, 290);
 
         p1Name.setEditable(false);
+        p1Name.setForeground(new java.awt.Color(255, 255, 255));
+        p1Name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        p1Name.setText("nome");
+        getContentPane().add(p1Name);
+        p1Name.setBounds(220, 20, 150, 30);
 
         p2Name.setEditable(false);
-
-        jLabel3.setText("Vida");
+        p2Name.setForeground(new java.awt.Color(255, 255, 255));
+        p2Name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        p2Name.setText("nome");
+        getContentPane().add(p2Name);
+        p2Name.setBounds(760, 20, 150, 30);
 
         p1Health.setEditable(false);
-
-        jLabel4.setText("Vida");
+        p1Health.setBackground(new java.awt.Color(0, 204, 0));
+        p1Health.setForeground(new java.awt.Color(255, 255, 255));
+        p1Health.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        p1Health.setBorder(null);
+        getContentPane().add(p1Health);
+        p1Health.setBounds(200, 570, 180, 20);
 
         p2Health.setEditable(false);
+        p2Health.setBackground(new java.awt.Color(0, 204, 0));
+        p2Health.setForeground(new java.awt.Color(255, 255, 255));
+        p2Health.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        p2Health.setBorder(null);
+        getContentPane().add(p2Health);
+        p2Health.setBounds(730, 570, 180, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(p1Name, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(p2Name, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(93, 93, 93)
-                        .addComponent(advanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(p1Health, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(p2Health, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(p1Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(p2Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(advanceButton)
-                        .addGap(47, 47, 47))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(p1Health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(p2Health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        x.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/x.png"))); // NOI18N
+        x.setBorderPainted(false);
+        x.setContentAreaFilled(false);
+        x.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xActionPerformed(evt);
+            }
+        });
+        getContentPane().add(x);
+        x.setBounds(1040, 0, 56, 57);
+
+        background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/battleBackground.gif"))); // NOI18N
+        getContentPane().add(background);
+        background.setBounds(0, 0, 1100, 600);
 
         pack();
         setLocationRelativeTo(null);
@@ -125,6 +112,10 @@ public final class Battle extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_advanceButtonActionPerformed
+
+    private void xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_xActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -158,14 +149,14 @@ public final class Battle extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton advanceButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel fotoP1;
+    private javax.swing.JLabel fotoP2;
     private javax.swing.JTextField p1Health;
     private javax.swing.JTextField p1Name;
     private javax.swing.JTextField p2Health;
     private javax.swing.JTextField p2Name;
+    private javax.swing.JButton x;
     // End of variables declaration//GEN-END:variables
 
     private void start() {
@@ -253,7 +244,7 @@ public final class Battle extends javax.swing.JFrame {
         try {
             Mage mage = new Mage();
 
-            /* CHAMANDO GUERREIRO */
+            /* CHAMANDO MAGO */
             String query = "SELECT * FROM `mage` WHERE id_mage = ?";
             PreparedStatement prepare = Connect.getConnect().prepareStatement(query);
             prepare.setInt(1, playerID);
