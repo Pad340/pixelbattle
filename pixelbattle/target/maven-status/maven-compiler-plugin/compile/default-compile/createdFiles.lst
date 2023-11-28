@@ -29,6 +29,7 @@ pixelbattle\UI\MageRegister.class
 pixelbattle\UI\WarriorRegister.class
 pixelbattle\UI\WarriorRegister$3.class
 pixelbattle\UI\SelectionChar$2.class
+pixelbattle\interfaces\Combatant.class
 pixelbattle\UI\Battle$1.class
 pixelbattle\UI\MageRegister$3.class
 pixelbattle\interfaces\Item.class

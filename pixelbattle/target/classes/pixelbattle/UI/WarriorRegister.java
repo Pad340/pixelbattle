@@ -50,10 +50,8 @@ public class WarriorRegister extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(899, 757));
         setMinimumSize(new java.awt.Dimension(899, 757));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(899, 757));
         getContentPane().setLayout(null);
 
         nome_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -145,6 +143,7 @@ public class WarriorRegister extends javax.swing.JFrame {
         saveButton.setBounds(350, 640, 200, 80);
 
         x.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/x.png"))); // NOI18N
+        x.setBorderPainted(false);
         x.setContentAreaFilled(false);
         x.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

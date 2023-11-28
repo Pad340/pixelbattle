@@ -1,6 +1,8 @@
 package pixelbattle.classes;
 
-public class Warrior extends Character {
+import pixelbattle.interfaces.Combatant;
+
+public class Warrior extends Character implements Combatant {
     
     private int strengthPoints;
     private int speedPoints;

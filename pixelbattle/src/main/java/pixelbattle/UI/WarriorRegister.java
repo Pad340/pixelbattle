@@ -50,10 +50,8 @@ public class WarriorRegister extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(899, 757));
         setMinimumSize(new java.awt.Dimension(899, 757));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(899, 757));
         getContentPane().setLayout(null);
 
         nome_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -63,11 +61,6 @@ public class WarriorRegister extends javax.swing.JFrame {
 
         name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         name.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
-            }
-        });
         getContentPane().add(name);
         name.setBounds(520, 190, 200, 30);
 
@@ -82,11 +75,6 @@ public class WarriorRegister extends javax.swing.JFrame {
         attackPoints.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         attackPoints.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         attackPoints.setPreferredSize(new java.awt.Dimension(30, 30));
-        attackPoints.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                attackPointsActionPerformed(evt);
-            }
-        });
         getContentPane().add(attackPoints);
         attackPoints.setBounds(200, 250, 70, 30);
 
@@ -145,6 +133,7 @@ public class WarriorRegister extends javax.swing.JFrame {
         saveButton.setBounds(350, 640, 200, 80);
 
         x.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/x.png"))); // NOI18N
+        x.setBorderPainted(false);
         x.setContentAreaFilled(false);
         x.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,14 +172,6 @@ public class WarriorRegister extends javax.swing.JFrame {
     private void xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xActionPerformed
         this.dispose();
     }//GEN-LAST:event_xActionPerformed
-
-    private void attackPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackPointsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_attackPointsActionPerformed
-
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
 
     public static void main(String args[]) {
         
