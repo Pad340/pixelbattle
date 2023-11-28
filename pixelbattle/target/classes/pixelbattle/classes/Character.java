@@ -1,6 +1,6 @@
 package pixelbattle.classes;
 
-class Character {
+public class Character {
     
     private String name;
     private int healthPoints;

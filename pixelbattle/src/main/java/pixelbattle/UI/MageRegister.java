@@ -175,45 +175,6 @@ public class MageRegister extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_xActionPerformed
 
-    public static void main(String args[]) {
-
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(MageRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(MageRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(MageRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(MageRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MageRegister().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ataque_text;
     private javax.swing.JTextField attackPoints;
@@ -253,19 +214,26 @@ public class MageRegister extends javax.swing.JFrame {
             prepare.setInt(5, this.mage.getKnowledgePoints());
             prepare.setInt(6, this.mage.getRegenerationPoints());
             prepare.executeUpdate(); // Salva o mago
+            
+            int buffedAttack = mage.getAttackPoints() * ((mage.getKnowledgePoints() / 10) + 1); // Buffa o ataque usando a sabedoria
+            int buffedDefense = mage.getDefensePoints() * ((mage.getRegenerationPoints() / 10) + 1); // Buffa a defesa usando a regeneração?
+
+            mage.setAttackPoints(buffedAttack);
+            mage.setDefensePoints(buffedDefense);
+            
             JOptionPane.showMessageDialog(this, "Mago salvo com sucesso!");
 
             SelectionPlayer.playerCount++; // Conta a quantidade total de jogadores
             switch (SelectionPlayer.playerCount) // Verifica qual jogador está cadastrando o mago
             {
                 case 1:
-                    SelectionPlayer.player1Selection = "mage";
+                    SelectionPlayer.player1Selection = this.mage;
                     break;
                 case 2:
-                    SelectionPlayer.player2Selection = "mage";
+                    SelectionPlayer.player2Selection = this.mage;
                     break;
                 default:
-                    JOptionPane.showMessageDialog(this, "Erro ao salvar mago!");
+                    JOptionPane.showMessageDialog(this, "Erro Mago!");
                     break;
             }
             this.dispose(); // Fecha a janela de cadastro

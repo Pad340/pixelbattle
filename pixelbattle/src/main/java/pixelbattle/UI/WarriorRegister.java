@@ -173,44 +173,6 @@ public class WarriorRegister extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_xActionPerformed
 
-    public static void main(String args[]) {
-        
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(WarriorRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new WarriorRegister().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ataque_text;
     private javax.swing.JTextField attackPoints;
@@ -250,19 +212,26 @@ public class WarriorRegister extends javax.swing.JFrame {
             prepare.setInt(5, this.warrior.getStrengthPoints());
             prepare.setInt(6, this.warrior.getSpeedPoints());
             prepare.executeUpdate(); // Salva o guerreiro
+            
+            int buffedAttack = warrior.getAttackPoints() * ((warrior.getStrengthPoints() / 10) + 1); // Buffa o ataque usando a força
+            int buffedDefense = warrior.getDefensePoints() * ((warrior.getSpeedPoints() / 10) + 1); // Buffa a defesa usando a velocidade?
+
+            warrior.setAttackPoints(buffedAttack);
+            warrior.setDefensePoints(buffedDefense);
+            
             JOptionPane.showMessageDialog(this, "Guerreiro salvo com sucesso!");
             
             SelectionPlayer.playerCount++; // Conta a quantidade total de jogadores
             switch (SelectionPlayer.playerCount) // Verifica qual jogador está cadastrando o guerreiro
             {
                 case 1:
-                    SelectionPlayer.player1Selection = "warrior";
+                    SelectionPlayer.player1Selection = this.warrior;
                     break;
                 case 2:
-                    SelectionPlayer.player2Selection = "warrior";
+                    SelectionPlayer.player2Selection = this.warrior;
                     break;
                 default:
-                    JOptionPane.showMessageDialog(this, "Erro ao salvar guerreiro!");
+                    JOptionPane.showMessageDialog(this, "Erro Guerreiro!");
                     break;
             }
             

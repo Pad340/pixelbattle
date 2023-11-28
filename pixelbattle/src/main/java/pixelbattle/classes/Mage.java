@@ -1,8 +1,6 @@
 package pixelbattle.classes;
 
-import pixelbattle.interfaces.Combatant;
-
-public class Mage extends Character implements Combatant {
+public class Mage extends Character {
     
     private int knowledgePoints;
     private int regenerationPoints;
