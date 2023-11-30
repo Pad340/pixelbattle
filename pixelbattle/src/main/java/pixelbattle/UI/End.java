@@ -27,7 +27,6 @@ public class End extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         winnerName = new javax.swing.JLabel();
         winnerImage = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         backgroundGif = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,6 +54,7 @@ public class End extends javax.swing.JFrame {
         jLabel1.setBounds(50, 30, 800, 160);
 
         winnerName.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        winnerName.setForeground(new java.awt.Color(255, 255, 255));
         winnerName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(winnerName);
         winnerName.setBounds(310, 180, 270, 70);
@@ -62,17 +62,6 @@ public class End extends javax.swing.JFrame {
         winnerImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(winnerImage);
         winnerImage.setBounds(310, 240, 270, 320);
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/lobbyText.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(10, 540, 220, 60);
 
         backgroundGif.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         backgroundGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pixelbattle/UI/images/winnerBackground.gif"))); // NOI18N
@@ -87,14 +76,8 @@ public class End extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_xActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Play().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundGif;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel winnerImage;
     private javax.swing.JLabel winnerName;
