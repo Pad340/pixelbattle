@@ -15,7 +15,7 @@ public class WarriorRegister extends javax.swing.JFrame {
         initComponents();
 
         // Gera um inteiro entre min e max
-        int attack = (int) (Math.random() * (20 - 15 + 1) + 15);
+        int attack = (int) (Math.random() * (25 - 20 + 1) + 20);
         attackPoints.setText("" + attack);
 
         int defense = (int) (Math.random() * (15 - 10 + 1) + 10);
