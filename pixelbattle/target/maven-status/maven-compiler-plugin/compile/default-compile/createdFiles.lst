@@ -4,6 +4,7 @@ pixelbattle\UI\SelectionPlayer$2.class
 pixelbattle\UI\SelectionChar.class
 pixelbattle\Main.class
 pixelbattle\UI\Play.class
+pixelbattle\UI\End$1.class
 pixelbattle\UI\SelectionPlayer$3.class
 pixelbattle\connect\Connect.class
 pixelbattle\UI\MageRegister$1.class
@@ -21,6 +22,7 @@ pixelbattle\UI\MageRegister.class
 pixelbattle\UI\WarriorRegister.class
 pixelbattle\UI\SelectionChar$2.class
 pixelbattle\UI\Battle$1.class
+pixelbattle\UI\End.class
 pixelbattle\classes\Mage.class
 pixelbattle\UI\Play$1.class
 pixelbattle\UI\SelectionPlayer.class

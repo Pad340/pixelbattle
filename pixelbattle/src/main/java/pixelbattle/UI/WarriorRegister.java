@@ -198,8 +198,8 @@ public class WarriorRegister extends javax.swing.JFrame {
          * SALVANDO GUERREIRO
          */
         String query = "INSERT INTO "
-                + "`warrior` "
-                + "(`name`, `health_points`, `attack_points`, `defense_points`, `strength_points`, `speed_points`) "
+                + "warrior "
+                + "(name, health_points, attack_points, defense_points, strength_points, speed_points) "
                 + "VALUES "
                 + "(?, ?, ?, ?, ?, ?);";
         try

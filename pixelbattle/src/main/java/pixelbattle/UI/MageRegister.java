@@ -200,8 +200,8 @@ public class MageRegister extends javax.swing.JFrame {
          * SALVANDO MAGO
          */
         String query = "INSERT INTO "
-                + "`mage` "
-                + "(`name`, `health_points`, `attack_points`, `defense_points`, `knowledge_points`, `regeneration_points`) "
+                + "mage "
+                + "(name, health_points, attack_points, defense_points, knowledge_points, regeneration_points) "
                 + "VALUES "
                 + "(?, ?, ?, ?, ?, ?);";
         try
@@ -239,8 +239,7 @@ public class MageRegister extends javax.swing.JFrame {
             this.dispose(); // Fecha a janela de cadastro
             new SelectionPlayer().setVisible(true); // Volta para a seleção de jogador
 
-        } catch (HeadlessException | SQLException exception)
-        {
+        } catch (HeadlessException | SQLException exception) {
             JOptionPane.showMessageDialog(this, exception.getMessage());
         }
     }

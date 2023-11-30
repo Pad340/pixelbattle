@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2023 às 01:42
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Tempo de geração: 30/11/2023 às 03:30
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,8 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `battle` (
   `id_battle` int(11) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `datetime` datetime NOT NULL
+  `status` varchar(255) NOT NULL,
+  `datetime` datetime NOT NULL DEFAULT current_timestamp(),
+  `winner` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -98,6 +99,12 @@ CREATE TABLE `warrior` (
 --
 
 --
+-- Índices de tabela `battle`
+--
+ALTER TABLE `battle`
+  ADD PRIMARY KEY (`id_battle`);
+
+--
 -- Índices de tabela `item`
 --
 ALTER TABLE `item`
@@ -120,22 +127,28 @@ ALTER TABLE `warrior`
 --
 
 --
+-- AUTO_INCREMENT de tabela `battle`
+--
+ALTER TABLE `battle`
+  MODIFY `id_battle` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `item`
 --
 ALTER TABLE `item`
-  MODIFY `id_item` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id_item` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `mage`
 --
 ALTER TABLE `mage`
-  MODIFY `id_mage` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id_mage` int(2) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `warrior`
 --
 ALTER TABLE `warrior`
-  MODIFY `id_warrior` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id_warrior` int(2) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
